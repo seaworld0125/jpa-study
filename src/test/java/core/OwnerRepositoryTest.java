@@ -12,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
  * @author 태경 2022-08-17
  */
 @DataJpaTest
-class MemberRepositoryTest {
+class OwnerRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;

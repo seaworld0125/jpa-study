@@ -1,6 +1,8 @@
 package core.query;
 
 import java.util.Optional;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -17,4 +19,6 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @Query("select m from Member m join fetch m.teams where m.id = :id")
     Optional<Member> findMemberWithTeamsInnerJoin(@Param("id") Long id);
+
+    Optional<Member> findMemberByName(String name);
 }

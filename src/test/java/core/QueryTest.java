@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.time.LocalDateTime;
+
 /**
  * @author 태경 2022-08-12
  */
@@ -105,5 +107,22 @@ public class QueryTest {
 
         var t = teamRepository.save(Team.builder().name("바르셀로나").build());
         t.setName("파리셍제르망");
+    }
+
+    @Test
+    void saveTest_저장테스트() {
+
+        var t = teamRepository.save(Team.builder().build());
+        var m = memberRepository.save(Member.builder().build());
+    }
+
+    @Test
+    void dateTest() {
+        LocalDateTime date1 = LocalDateTime.of(2022, 8, 26, 10, 0, 0);
+        LocalDateTime date2 = LocalDateTime.of(2022, 8, 26, 10, 0, 1);
+
+        System.out.println(date1.toString());
+        System.out.println(date2.toString());
+        assert date1.isEqual(date2): "안같음";
     }
 }
